@@ -1,0 +1,72 @@
+CREATE DATABASE DemoMVC5myClass
+GO
+USE DemoMVC5myClass
+GO
+
+CREATE TABLE KhachHang (
+	MaKH INT IDENTITY PRIMARY KEY,
+	HoTen NVARCHAR(50),
+	TaiKhoan NVARCHAR(50),
+	MatKhau NVARCHAR(50),
+	Email NVARCHAR(50),
+	DiaChi NVARCHAR(100),
+	DienThoai VARCHAR(10),
+	GioiTinh NVARCHAR(3),
+	NgaySinh DATETIME
+)
+
+CREATE TABLE ChuDe (
+	MaChuDe INT IDENTITY PRIMARY KEY,
+	TenChuDe NVARCHAR(50)
+	)
+
+CREATE TABLE NhaXuatBan (
+	MaNXB INT IDENTITY PRIMARY KEY,
+	TenNXB NVARCHAR(50),
+	DiaChi NVARCHAR(50),
+	DienThoai VARBINARY(10)
+	)
+
+CREATE TABLE TacGia (
+	MaTacGia INT IDENTITY PRIMARY KEY,
+	TenTacGia NVARCHAR(50),
+	DiaChi NVARCHAR(100),
+	TieuSu NVARCHAR(MAX),
+	DienThoai VARCHAR(10)
+	)
+CREATE TABLE Sach (
+	MaSach INT IDENTITY PRIMARY KEY,
+	TenSach NVARCHAR(50),
+	GiaBan DECIMAL(18,0),
+	MoTa NVARCHAR(MAX),
+	AnhBia NVARCHAR(50),
+	NgayCapNhat DATETIME,
+	SoLuongTon INT,
+	MaNXB INT,
+	MaChuDe INT
+	)
+
+CREATE TABLE ThamGia (
+	MaSach INT,
+	MaTacGia INT,
+	VaiTro NVARCHAR(50),
+	ViTri NVARCHAR(50),
+	PRIMARY KEY(MaSach,MaTacGia)
+	)
+
+CREATE TABLE DonHang (
+	MaDonHang INT PRIMARY KEY,
+	DaThanhToan INT,
+	TinhTrangDonHang INT,
+	NgayDat DATETIME,
+	NgayGiao DATETIME,
+	MaKH INT
+)
+
+CREATE TABLE ChiTietDonHang (
+	MaDonHang INT,
+	MaSach INT,
+	SoLuong INT,
+	DonGia NCHAR(10),
+	PRIMARY KEY(MaDonHang,MaSach)
+)
