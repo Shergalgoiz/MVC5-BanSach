@@ -1,0 +1,13 @@
+﻿div#ToanTrang {
+    position: relative
+}
+
+.DangKyDangNhap {
+    float: right;
+    margin-top:-1%
+}
+
+.DangKyDangNhap a:hover {
+    text-decoration: none;
+    color:green
+}
